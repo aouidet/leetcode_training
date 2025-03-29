@@ -1,5 +1,6 @@
-package com.features.leetcode.medium.alternatinggroup3208;
+package com.features.leetcode.easy.minimumrecolortogetk2379;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,26 +9,24 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class MaxIntegerSequenceTest {
 
     private static Stream<Arguments> providerElementsParameters() {
-        return Stream.of(
-                Arguments.of(new int[]{0, 1, 0, 1, 0}, 3, 3),
-                Arguments.of(new int[]{0, 1, 0, 0, 1, 0, 1}, 6, 2),
-                Arguments.of(new int[]{1, 1, 0, 1}, 4, 0)
-        );
+        return Stream.of(Arguments.of("WBBWWBBWBW", 7, 3),
+                Arguments.of("WBWBBBW", 2, 0));
     }
 
     @ParameterizedTest
     @MethodSource("providerElementsParameters")
-    void numberOfAlternatingGroups_shouldReturnResult_whenInvokedMethod(int[] colors, int k, int expectedOutput) {
+    void minimumRecolors_shouldReturnZero_whenWeHaveKLessThanSuccessiveBlack(String str, int k, int expectedOutput) {
         // GIVEN
         Solution solution = new Solution();
 
         // WHEN
-        final int result = solution.numberOfAlternatingGroups(colors, k);
+        final int result = solution.minimumRecolors(str, k);
 
         // THEN
         assertEquals(result, expectedOutput);
     }
+
 }

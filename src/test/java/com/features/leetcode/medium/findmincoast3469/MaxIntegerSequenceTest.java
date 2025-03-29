@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class SolutionTest {
+class MaxIntegerSequenceTest {
 
     private static Stream<Arguments> providerThreeOrFewerElementsParameters() {
         return Stream.of(

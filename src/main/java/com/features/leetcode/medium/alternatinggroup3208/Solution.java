@@ -2,27 +2,42 @@ package com.features.leetcode.medium.alternatinggroup3208;
 
 public class Solution {
 
-    public int numberOfAlternatingGroups(int[] colors, int k) {
+    public static int numberOfAlternatingGroups(int[] colors, int k) {
+
         int n = colors.length;
         int count = 0;
+        // construire n tableau d'altérnance
+        int[] buffer = new int[n + k];
+        // completer le tableau
+        int[] complement = new int[k];
+        System.arraycopy(colors, 0, complement, 0, k);
 
-        // parcourir les indices en considérant la circularité
-        for (int i = 0; i < n; i++) {
-            if (isAlternatingGroup(colors, i, k, n)) {
-                count++;
-            }
+        buffer = mergeArrays(colors, complement);
+
+        // Étape 2 : Fenêtre glissante sur le tableau étendu
+        for (int i = 0; i < buffer.length - 1; i++) {
+
         }
+
         return count;
     }
 
-    private boolean isAlternatingGroup(int[] colors, int start, int k, int n) {
-        for (int j = 1; j < k; j++) {
-            int prevIndex = (start + j - 1) % n; // Indice précédent (modulo n pour la circularité)
-            int currentIndex = (start + j) % n; // Indice courant
-            if (colors[prevIndex] == colors[currentIndex]) {
-                return false;
-            }
-        }
-        return true;
+
+
+    public static int[] mergeArrays(int[] arr1, int[] arr2) {
+        int n1 = arr1.length, n2 = arr2.length;
+        int[] mergedArray = new int[n1 + n2];
+
+        // Copier le premier tableau
+        System.arraycopy(arr1, 0, mergedArray, 0, n1);
+        // Copier le second tableau
+        System.arraycopy(arr2, 0, mergedArray, n1, n2);
+
+        return mergedArray;
+    }
+
+    public static void main(String[] args) {
+        int result = numberOfAlternatingGroups(new int[]{0, 1, 0, 1, 0}, 3);
+        System.out.println(result);
     }
 }

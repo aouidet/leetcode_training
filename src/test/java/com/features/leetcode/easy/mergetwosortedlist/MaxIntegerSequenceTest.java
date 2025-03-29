@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class SolutionTest {
+class MaxIntegerSequenceTest {
 
     Solution solution = new Solution();
 
